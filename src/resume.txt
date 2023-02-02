@@ -1,0 +1,12 @@
+React Router Dom : Routing library => React
+
+It makes me navigate in a single page application (react application) 
+=> Controlling components display by a specific path (url)
+
+
+
+1 => install react-router-Dom
+2=> use browser router in app.js
+3 => use Routes as a parent for the <Route> </Route> tags 
+
+<Link to:"adresse"> button h1 </Link> => <Route path:"adresse" element={<MovieList/>}

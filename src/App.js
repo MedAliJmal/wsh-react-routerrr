@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Second from "./components/second/Second";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HeaderNav from "./components/headerNav/HeaderNav";
+import CarList from "./components/carList/CarList";
+import Price from "./components/price/Price";
+
+const cars = [
+  { id: Math.random(), brand: "Mercedes", price: "224K" },
+  { id: Math.random(), brand: "Audi", price: "150K" },
+  { id: Math.random(), brand: "VW", price: "110K" },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderNav />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CarList cars={cars} />} />
+          <Route path="/car/:id" element={<Price cars={cars} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
